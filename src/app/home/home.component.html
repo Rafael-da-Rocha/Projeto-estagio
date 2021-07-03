@@ -3,21 +3,21 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">NOME DO PRODUTO</th>
-        <th scope="col">VALOR</th>
+        <th scope="col" class="align-right">VALOR</th>
+        <th ><button type="button" class="btn  btn-primary-outline" (click)="cadastro()">
+          <span class="glyphicon glyphicon-plus"></span>
+        </button></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let p of produto">
         <th scope="row" >{{p.id}}</th>
         <td>{{p.nome | uppercase}}</td>
-        <td>{{p.preco.toLocaleString("pt-BR") | currency:'BRL'}}</td>
-        <td>
+        <td class="align-right">{{p.preco | currency:'BRL'}}</td>
+        <td class="align-left">
           <button type="button" class="btn  btn-primary-outline" (click)="editar(p.id)">
             <span class="glyphicon glyphicon-pencil"></span>
-          </button>
-        </td>         
-        <td>
-          
+          </button>          
           <button type="button" class="btn  btn-primary-outline"
           mwlConfirmationPopover
           [popoverTitle]="popoverTitle"
@@ -43,5 +43,7 @@
       </div>
   </div>
   </ng-template>
+
+  
 
   

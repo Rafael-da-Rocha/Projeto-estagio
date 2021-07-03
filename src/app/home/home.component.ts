@@ -46,4 +46,7 @@ export class HomeComponent implements OnInit {
   editar = (id:any) =>{
     this.router.navigate(['cadastro',id])
   }
+  cadastro=()=>{
+    this.router.navigate(['cadastro'])
+  }
 }

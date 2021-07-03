@@ -7,6 +7,12 @@
 .btn-primary-outline {
   background-color: transparent;
 }
+.align-right{
+  text-align: right;
+}
+.align-center{
+  text-align: center;
+}
 
 #preloader {
     position:fixed;

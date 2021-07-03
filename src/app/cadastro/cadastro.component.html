@@ -1,8 +1,14 @@
 <div class="container">
-    <label for="nome" class="form-label">Produto</label>
-    <input class="form-control" name="nome" id="nome" [(ngModel)]="produto.nome">
-    <label for="preco" class="form-label">Preço</label>
-    <input class="form-control" name="preco" id="preco" [(ngModel)]="produto.preco"> 
-    <button type="button" class="btn btn-success" (click)="adicionar()">{{this.textoBotao}}</button>
-    <button type="button" class="btn btn-secondary" (click)="navegar('cadastro')">Limpar</button>
+    <div class="margin-botton">
+        <label for="nome" class="form-label">Produto</label>
+        <input class="form-control" name="nome" id="nome" [(ngModel)]="produto.nome">
+    </div>
+    <div class="margin-botton">
+        <label for="preco" class="form-label">Preço</label>
+        <input class="form-control" name="preco" id="preco" [(ngModel)]="produto.preco"> 
+    </div>
+    <div>
+        <button type="button" class="btn btn-success" (click)="adicionar()">{{this.textoBotao}}</button>
+        <button type="button" class="btn btn-secondary" (click)="navegar('cadastro')">Limpar</button>
+    </div>
 </div>
