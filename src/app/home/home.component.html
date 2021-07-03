@@ -22,6 +22,8 @@
           mwlConfirmationPopover
           [popoverTitle]="popoverTitle"
           [popoverMessage]="popoverMessage"
+          [confirmText]="confirmText"
+          [cancelText]="cancelText"
           placement="left"
           (confirm)="excluirItem(p.id)"
           (cancel)="cancelClicked = true">

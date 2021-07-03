@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   placements = ['top', 'left', 'right', 'bottom'];
   popoverTitle = 'Deletar';
   popoverMessage = 'Você tem certeza que deseja deletar este item?';
+  confirmText = 'Sim <i class="fas fa-check"></i>';
+  cancelText = 'Não <i class="fas fa-times"></i>';
   confirmClicked = false;
   cancelClicked = false;
   trackByValue: TrackByFunction<string> = (index, value) => value;
