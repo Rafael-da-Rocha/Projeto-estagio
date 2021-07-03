@@ -1,16 +1,6 @@
 {
   "produtos": [
     {
-      "id": 2,
-      "nome": "notebook i5",
-      "preco": "4500.45"
-    },
-    {
-      "id": 3,
-      "nome": "teclado",
-      "preco": "199.99"
-    },
-    {
       "id": 4,
       "nome": "Mouse Gamer",
       "preco": "59.99"
@@ -39,6 +29,16 @@
       "id": 10,
       "nome": "Feijão",
       "preco": "4.66"
+    },
+    {
+      "id": 11,
+      "nome": "Farofa",
+      "preco": "4.5"
+    },
+    {
+      "id": 12,
+      "nome": "ov",
+      "preco": 0.6
     }
   ]
 }
