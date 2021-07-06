@@ -1,30 +1,62 @@
-<!--div class="container">
-    <div class="margin-botton">
-        <label for="nome" class="form-label">Produto</label>
-        <input type="text" class="form-control" name="nome" id="nome" [(ngModel)]="produto.nome">
-    </div>
-    <div class="margin-botton">
-        <label for="preco" class="form-label">Preço</label>
-        <input type="number" class="form-control" name="preco" id="preco" [(ngModel)]="produto.preco" (keyup.enter)="adicionar()"> 
-    </div>
-    <div>
-        <button type="button" class="btn btn-success" (click)="adicionar()">{{this.textoBotao}}</button>
-        <button type="button" class="btn btn-secondary" (click)="navegar('home')">Cancelar</button>
-    </div>
-</div-->
-
-<form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
-
-    <app-input-field class="col-sm-12" formControlName="nome"
-      [classeCss]="aplicaCssErro('nome')"
-      id="nome" label="Nome" [control]="formulario.get('nome')"
-    ></app-input-field>
-
-    <div class="form-group" [ngClass]="aplicaCssErro('email')">
-        <div class="col-sm-12">
-          <label for="valor" class="control-label">Valor</label>
+<div class="container">
+    <form [formGroup]="produtoForm">
+        <div class="margin-botton">
+            <label for="nome" >Produto</label>
+            <input 
+                type="text" 
+                formControlName="nome"
+                class="form-control" 
+                [ngClass]="{
+                    'is-invalid': produtoForm.controls.nome.errors
+                }" 
+                name="nome" 
+                id="nome" >
+            <div 
+                *ngIf="produtoForm.controls.nome.errors && produtoForm.controls.nome.errors.required" 
+                class="invalid-feedback"> 
+                Nome é Obrigatório 
+            </div>
         </div>
-        <div class="col-sm-12">
-          <input type="number" class="form-control" formControlName="valor" id="preco" placeholder="Valor">
+        <div class="margin-botton">
+            <label for="preco" class="form-label">Preço</label>
+            <input 
+                type="number" 
+                formControlName="preco" 
+                class="form-control" 
+                [ngClass]="{
+                    'is-invalid': produtoForm.controls.preco.errors
+                }" 
+                name="preco" 
+                id="preco" 
+                (keyup.enter)="submit()"> 
+            <div 
+                *ngIf="produtoForm.controls.preco.errors" 
+                class="invalid-feedback"> 
+                <div *ngIf=" produtoForm.controls.preco.errors.required">
+                    Preco é Obrigatório 
+                </div>
+                <div *ngIf=" !produtoForm.controls.preco.errors.required">
+                    Preco deve ser maior que 0
+                </div>
+            </div>
         </div>
-      </div>
+        <div>
+            <button 
+                class="btn" 
+                [ngClass]="{ 
+                    'disabled':produtoForm.invalid, 
+                    'btn-secondary':produtoForm.invalid, 
+                    'btn-success':!produtoForm.invalid 
+                }" 
+                (click)="submit()">
+                    {{situacaoAtual.textoBotao}}
+            </button>
+            <button 
+                type="button" 
+                class="btn btn-secondary" 
+                (click)="navegar('home')">
+                Cancelar
+            </button>
+        </div>
+    </form>
+</div>

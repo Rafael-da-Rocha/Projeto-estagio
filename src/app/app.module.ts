@@ -24,7 +24,6 @@ import { ProdutoService } from './service/produto.service';
     FormsModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here
-      cancelButtonType:'info'
     }),
   ],
   providers: [ProdutoService],
