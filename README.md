@@ -1,5 +1,12 @@
 # Projeto-Estagio
 
+# Back-end
+
+Rode num terminal de comandos npm i -g json-server
+Após a instalação execute o comando json server --watch db.json
+
+# Front-end
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
 
 ## Development server

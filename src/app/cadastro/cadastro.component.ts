@@ -13,8 +13,8 @@ import { ProdutoService } from './../service/produto.service';
 })
 export class CadastroComponent implements OnInit {
 
-  id: any
-  produto: Produto =new Produto (0,'', 0)
+  id: number
+  produto: Produto
   textoBotao: string = 'Adicinar' 
   
   constructor(
@@ -24,6 +24,9 @@ export class CadastroComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+
+
     this.activatedRoute.params.subscribe(parametros =>{
       if(parametros['id']){
         this.textoBotao = 'Modificar'
@@ -34,17 +37,26 @@ export class CadastroComponent implements OnInit {
       }
     })
   }
+  this.formulario = this.formBuilder.group({
+    nome: [null ,[Validators.required]],
+    preco:[null ,[Validators.required]]
+  })
 
   adicionar = ()=>{
+    let produto:Produto = {
+      produto.nome = this.formulario.nome,
+      produto.preco = this.formulario.preco
+    };
+
     if (this.textoBotao == 'Adicinar'){
       this.prodService.adicionarItem(this.produto).subscribe(
         success => this.navegar('home'),
         error =>console.log("Deu algum erro"),
         ()=> console.log('Requisição Completa'))
-      this.navegar('home')
     }else{
       this.editar()
     }
+    this.navegar('home')
   }
 
   editar = () =>{
@@ -60,5 +72,4 @@ export class CadastroComponent implements OnInit {
   limpar(){
     this.router.navigate([this.router.url])
   }
-
 }
