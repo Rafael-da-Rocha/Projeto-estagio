@@ -2,8 +2,8 @@
 
 # Back-end
 
-Rode num terminal de comandos npm i -g json-server
-Após a instalação execute o comando json server --watch db.json
+Rode num terminal de comandos npm i -g json-server .
+Após a instalação execute o comando json server --watch db.json .
 
 # Front-end
 
